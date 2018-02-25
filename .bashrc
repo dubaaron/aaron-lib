@@ -25,7 +25,8 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # \w = working dir
 # export PS1='\u \w$(__git_ps1 " (%s)")\$ '
 
-export PS1="\[$(tput bold)\]\[\033[38;5;13m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\[$(tput sgr0)\]\$(__git_ps1 ' (%s)')\n\\$ "
+#export PS1="\[$(tput bold)\]\[\033[38;5;13m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\[$(tput sgr0)\]\$(__git_ps1 ' (%s)')\n\\$ "
+export PS1="$PS1\$(__git_ps1 '(%s)')\n\\$ "
 
 ## Make SSH auth socket symlink to SSH auth, to help using ssh-agent with tmux, et al.
 if [ -S "$SSH_AUTH_SOCK" ] && [ ! -h "$SSH_AUTH_SOCK" ]; then
