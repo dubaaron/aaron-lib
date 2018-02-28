@@ -49,9 +49,15 @@ function main {
 
     echo
     echo "Dumping to ${dump_filename} ..."
-    set -vx
+    #set -vx
     mysqldump -v ${nodata_arg} ${source_host_arg} ${source_port_arg} ${source_user_arg} $source_password_arg ${source_db} ${source_tables[*]} ${exclude_tables_arg} > ${dump_filename}
-    set +vx
+    mysqldump_success=$?
+    #set +vx
+
+    if [ "${mysqldump_success}" != 0 ]; then
+        echo; echo "Error encountered in dumping from source db; aborting."
+        exit 1;
+    fi
 
 
     echo
@@ -89,9 +95,9 @@ function set_defaults {
         source_password_arg="--password=${source_password}"
     fi
 
-    source_password_arg=''
+    dest_password_arg=''
     if [ "${dest_password}" != "" ]; then
-        source_password_arg="--password=${dest_password}"
+        dest_password_arg="--password=${dest_password}"
     fi
 
     nodata_arg=''  # the -d flag to mysqldump will dump structure only, no data
@@ -120,16 +126,16 @@ function load_config {
 
 
 function get_args {
-    if [ $# -eq 0 ]; then # if no args
-        print_usage
-        exit 1
-    fi
+    #if [ $# -eq 0 ]; then # if no args
+    #    print_usage
+    #    exit 1
+    #fi
 
     OPTIND=1 # A POSIX var, reset in case getopts has been used previously in the shell.
 
     while (( $# )); do
         case "$1" in
-        -h|-\? ) print_usage;;
+        -h|-\?|--help ) print_usage;;
         -i ) get_args_interactively;;
         # the 'shift 2' is required for parameters with values because they
         # technically have 2 parameters
