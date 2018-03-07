@@ -126,10 +126,10 @@ function load_config {
 
 
 function get_args {
-    #if [ $# -eq 0 ]; then # if no args
-    #    print_usage
-    #    exit 1
-    #fi
+    if [ $# -eq 0 ]; then # if no args
+        print_usage
+        exit 1
+    fi
 
     OPTIND=1 # A POSIX var, reset in case getopts has been used previously in the shell.
 
@@ -212,9 +212,8 @@ function print_usage {
     echo;
     echo "       -nd            : Dump/import structure only, no data";
     echo
-    echo "Creating a .pull_db.conf.sh in script dir, home dir, or working dir can be used to "
-    echo "set defaults.  Will be applied in that order.  .pull_db.example.conf.sh should have "
-    echo "been distributed with this script to show available options."
+    echo "Creating a '.pull_db.conf.sh' in script dir, home dir, or working dir can be used to set defaults.  Will be applied in that order."
+    echo "a '.pull_db.example.conf.sh' should have been distributed with this script to show available options; copy and override as desired."
     exit 0
 }
 
