@@ -1,7 +1,11 @@
 #!/bin/bash
-# Utility script for copying tables from one DB to another
+# pull_db
 #
-# Copyright (C) 2017 Aaron Wallentine <aaron@adubsvc.net>
+# Utility script for copying tables from one MySQL DB to another
+#
+# pull_db -h for usage.
+#
+# Copyright (C) 2017-2018 Aaron Wallentine <aaron@adubsvc.net>
 # Distributed under the GNU General Public License, version 2.0.
 #
 #
