@@ -112,7 +112,6 @@ function set_defaults {
 
 function load_config {
 
-    use_config=0
     config_file_name=".pull_db.conf.sh"
     script_dir=$(dirname "$(readlink -f "$0")")
 
@@ -120,9 +119,11 @@ function load_config {
                    "${HOME}/${config_file_name}"       # next, config file in home dir as userwide config
                    "`pwd`/${config_file_name}" )       # then, config file in working dir as local config
 
+    # todo:2018-03-23:aaronw: maybe keep a list of which config files have been loaded, and don't re-output (or re-load) if already loaded.  As it is, if the working dir is the same as either the home dir or the script dir, it will output that it has loaded the file more than once.  Alternatively, could check if pwd (and home dir) is same before adding to files_to_try array ...
     for file_to_try in "${files_to_try[@]}"; do
         if [ -f "${file_to_try}" ]; then
             source "${file_to_try}"
+            echo "Loaded config file at '${file_to_try}'."
         fi
     done
 }
@@ -191,6 +192,7 @@ function get_args {
 
 
 function print_usage {
+    echo
     echo "Dump database or table from source DB and import into destination DB. ";
     echo
     echo "Args: ";
@@ -218,6 +220,7 @@ function print_usage {
     echo
     echo "Creating a '.pull_db.conf.sh' in script dir, home dir, or working dir can be used to set defaults.  Will be applied in that order."
     echo "a '.pull_db.example.conf.sh' should have been distributed with this script to show available options; copy and override as desired."
+
     exit 0
 }
 
