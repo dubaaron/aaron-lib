@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# todo: start odrive agent if not started already?
+# todo: make sleep delay configurable through cli input
+
 # loop status display
 while [[ 1 ]]; do
     odrive status
