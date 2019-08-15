@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+   <mime-type type="application/x-odrive-file-placeholder">
+     <comment>Odrive file placeholder</comment>
+     <glob pattern="*.cloud"/>
+   </mime-type>
+   <mime-type type="application/x-odrive-folder-placeholder">
+     <comment>Odrive folder placeholder</comment>
+     <glob pattern="*.cloudf"/>
+   </mime-type>
+</mime-info>
