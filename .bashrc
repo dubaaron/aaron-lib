@@ -6,16 +6,21 @@
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
-alias cdscripts='cd /home/pavlus/public_html/testing/scripts/WorkSpace/Pavlus_Scripts/'
 
-alias ll='ls -alh --color=auto'
-alias composer='composer -vv'
 
-# set default permissions so we can collab with 'pavlus' group
+# alias composer='composer -vv'
+alias ll="ls -alh --color=always"
+alias less="less -R"
+
+
+# set default permissions so we can collab with group
 # 0002 results in files being -rw-rw-r-- (664), dirs being drwxrwxr-x (775)
 umask 0002
 
-export VISUAL=emacs
+# export VISUAL=emacs
+
+
+export PATH=~/bin:$PATH
 
 # add git info to prompt
 . ~/bin/git-prompt.sh
@@ -33,3 +38,7 @@ if [ -S "$SSH_AUTH_SOCK" ] && [ ! -h "$SSH_AUTH_SOCK" ]; then
     ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
+
+# another ps1, this is the default one from ubuntu with force_color_promt set to true
+export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") $ '
