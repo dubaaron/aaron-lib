@@ -1,7 +1,48 @@
 ; AutoHotkey remappings
 
+
+;;;; quick symbol reference:
+;; ^ = Ctrl, ! = Alt, 
+;; # = Win, + = Shift, 
+;; < = left key of pair, > = right key of pair
+
+
+
 ; this has to come before remapping caps lock in order to work
 +CapsLock::CapsLock 
+
+;;;;;;;;
+; thanks to https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows
+;
+; Using arrows to move cursor by word
+<!Left::Send {ctrl down}{Left}{ctrl up}
+<!Right::Send {ctrl down}{Right}{ctrl up}
+
+; Navigation using of bigger chunks (Skip to start/end of line/paragraph/document)
+^Left::Send {Home}
+^Right::Send {End}
+!Up::Send {ctrl down}{Up}{ctrl up}
+!Down::Send {ctrl down}{Down}{ctrl up}
+
+;; Disable Ctrl + Up and Ctrl + Down matching of Mac behavior, because I prefer regular Ctrl + UP and Down on Windows, esp. for Dynalist and others that use Ctrl+Up/Down for moving items in a list.
+;^Up::Send {Lctrl down}{Home}{Lctrl up}
+;^Down::Send {Lctrl down}{End}{Lctrl up}
+
+
+; Selection (uses a combination of the above with shift)
+<!+Left::Send {ctrl down}{shift down}{Left}{shift up}{ctrl up}
+<!+Right::Send {ctrl down}{shift down}{Right}{shift up}{ctrl up}
+^+Left::Send {shift down}{Home}}{shift up}
+^+Right::Send {shift down}{End}}{shift up}
+!+Up::Send {ctrl down}{shift down}{Up}}{shift up}{ctrl up}
+!+Down::Send {ctrl down}{shift down}{Down}}{shift up}{ctrl up}
+^+Up::Send {Lctrl down}{shift down}{Home}}{shift up}{Lctrl up}
+^+Down::Send {Lctrl down}{shift down}{End}}{shift up}{Lctrl up}
+
+
+
+
+
 
 ; make capslock do control
 CapsLock::Ctrl
@@ -22,9 +63,22 @@ RCtrl::Alt
 
 ; and provide a way to Ctrl-Tab as well
 !Tab::^Tab
-; Restore default Alt-Tab behavior
+
+; Restore default Alt-Tab behavior, but now alt is remapped to Ctrl ... 
+;; #todo:2020-03-28 this results in having to press enter or mouse click on destination window ... the alt-tab window switcher stays up after letting go of alt, instead of going away, as normal
+;; may find some solution here: https://www.autohotkey.com/docs/Hotkeys.htm#AltTabDetail -- 
 ^Tab::!Tab
 
+
+;; Trying another way ...
+; REPLACES ALT-TAB APPLICATION SWITCHING WITH OSX CMD-TAB
+;<^Tab::AltTab
+;!Tab::return
+
+
+
+
+;;; media keys
 ^F2::Send {Media_Play_Pause}
 ^F9::Send {Volume_Up}
 ^F8::Send {Volume_Down}
@@ -78,7 +132,42 @@ Return
 
 
 ;; TODO: map alt-f8, alt-f9 to vol+ and vol-  (alt-f7: mute)
+
 ;; - map LWin(remapped to alt)-Left and -Right to Home and End, for consistency with Mac
-;;   (then remap on mac as well so it matches, so I can use Cmd-Left and -Right to match Ctrl-Left and -Right on non-Mac)
 
 
+;;   (then remap on mac as well so it matches, so I can use Cmd-Left and -Right to match Ctrl-Left and -Right on non-Mac, to jump between words?)
+
+
+; ### text expansions
+::hb::haribol
+
+; hour:minute
+::hm::
+SendInput %A_Hour%:%A_Min%
+return
+
+; hour minute minimal (no colon)
+;::hmm::
+;SendInput %A_Hour%%A_Min%
+;return
+
+::ymdm::
+SendInput %A_YYYY%%A_MM%%A_DD%
+return
+
+::ymd::
+SendInput %A_YYYY%-%A_MM%-%A_DD%
+return
+
+::ymhm::
+SendInput %A_YYYY%-%A_MM%-%A_DD% %A_Hour%:%A_Min%
+return
+
+::ymhmm::
+SendInput %A_YYYY%%A_MM%%A_DD%%A_Hour%%A_Min%
+return
+
+::zkidm::
+SendInput %A_YYYY%-%A_MM%-%A_DD%_%A_Hour%%A_Min%
+return
