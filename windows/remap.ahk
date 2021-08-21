@@ -8,9 +8,6 @@
 
 
 
-; this has to come before remapping caps lock in order to work
-+CapsLock::CapsLock 
-
 ;;;;;;;;
 ; thanks to https://autohotkey.com/board/topic/60675-osx-style-command-keys-in-windows
 ;
@@ -43,23 +40,30 @@
 
 
 
+; this has to come before remapping caps lock in order to work
+; 
++CapsLock::CapsLock
 
 ; make capslock do control
 CapsLock::Ctrl
 
+
+
+;; disabling these as I'm using PowerToys to do it now; it's more reliable for switching out modifier keys
 ; Alt is Ctrl
-Alt::Ctrl
+;Alt::Ctrl
 ; LWin is Alt
-LWin::Alt
+;LWin::Alt
 
 ; Ctrl is LWin
-LCtrl::LWin
+;LCtrl::LWin
 ; RCtrl is Alt
-RCtrl::Alt
+;RCtrl::Alt
 
 
 ; Ctrl-Space for Windows menu (Alt-space with remap)
-^Space::Send ^{Esc}
+; disabling for now [[2021-08-05 Thursday]] to try PowerToys Run instead ... can still use regular Windows key
+;^Space::Send ^{Esc}
 
 ; and provide a way to Ctrl-Tab as well
 !Tab::^Tab
@@ -68,6 +72,8 @@ RCtrl::Alt
 ;; #todo:2020-03-28 this results in having to press enter or mouse click on destination window ... the alt-tab window switcher stays up after letting go of alt, instead of going away, as normal
 ;; may find some solution here: https://www.autohotkey.com/docs/Hotkeys.htm#AltTabDetail -- 
 ^Tab::!Tab
+;<^Tab::AltTab
+;<!Tab::AltTab
 
 
 ;; Trying another way ...
@@ -160,6 +166,11 @@ return
 SendInput %A_YYYY%-%A_MM%-%A_DD%
 return
 
+::ymdd::
+SendInput %A_YYYY%-%A_MM%-%A_DD% %A_DDDD%
+return
+
+
 ::ymhm::
 SendInput %A_YYYY%-%A_MM%-%A_DD% %A_Hour%:%A_Min%
 return
@@ -170,4 +181,16 @@ return
 
 ::zkidm::
 SendInput %A_YYYY%-%A_MM%-%A_DD%_%A_Hour%%A_Min%
+return
+
+::zkidf::
+SendInput zkid: %A_YYYY%-%A_MM%-%A_DD%_%A_Hour%%A_Min%
+return
+
+::zkidt::
+; old way: 
+;SendInput <{!}-- `nzkid: %A_YYYY%-%A_MM%-%A_DD%_%A_Hour%%A_Min% `n-->
+
+; going to use YAML frontmatter separators now instead of HTML comments
+SendInput ---`nzkid: %A_YYYY%-%A_MM%-%A_DD%_%A_Hour%%A_Min% `n---
 return
