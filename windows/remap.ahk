@@ -66,12 +66,14 @@ CapsLock::Ctrl
 ;^Space::Send ^{Esc}
 
 ; and provide a way to Ctrl-Tab as well
-!Tab::^Tab
+; disabling for now, doesn't seem to be needed anymore
+;!Tab::^Tab
 
 ; Restore default Alt-Tab behavior, but now alt is remapped to Ctrl ... 
 ;; #todo:2020-03-28 this results in having to press enter or mouse click on destination window ... the alt-tab window switcher stays up after letting go of alt, instead of going away, as normal
 ;; may find some solution here: https://www.autohotkey.com/docs/Hotkeys.htm#AltTabDetail -- 
-^Tab::!Tab
+; disabling for now, doesn't seem to be needed anymore
+;^Tab::!Tab
 ;<^Tab::AltTab
 ;<!Tab::AltTab
 
