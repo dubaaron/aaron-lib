@@ -1,0 +1,178 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.createTerminalEditor"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "workbench.action.switchWindow"
+  },
+  {
+    "key": "cmd+=",
+    "command": "-workbench.action.zoomIn"
+  },
+  {
+    "key": "cmd+-",
+    "command": "-workbench.action.zoomOut"
+  },
+  {
+    "key": "cmd+=",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "cmd+-",
+    "command": "editor.action.fontZoomOut"
+  },
+  {
+    "key": "shift+cmd+0",
+    "command": "workbench.action.zoomReset"
+  },
+  {
+    "key": "cmd+numpad0",
+    "command": "-workbench.action.zoomReset"
+  },
+  {
+    "key": "cmd+0",
+    "command": "editor.action.fontZoomReset"
+  },
+  {
+    "key": "cmd+g",
+    "command": "workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "cmd+k shift+'",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "ctrl+cmd+2",
+    "command": "workbench.action.editorLayoutTwoColumns"
+  },
+  {
+    "key": "ctrl+cmd+3",
+    "command": "workbench.action.editorLayoutThreeColumns"
+  },
+  {
+    "key": "ctrl+cmd+1",
+    "command": "workbench.action.editorLayoutSingle"
+  },
+// Toggle between terminal and editor focus
+{
+  "key": "ctrl+`",
+  "command": "-workbench.action.terminal.toggleTerminal",
+  "when": "terminal.active"
+},
+{
+  "key": "ctrl+`",
+  "command": "workbench.action.toggleAuxiliaryBar"
+},
+{
+  "key": "ctrl+`",
+  "command": "terminal.focus"
+},
+{
+  "key": "alt+`",
+  "command": "workbench.action.toggleAuxiliaryBar"
+},
+
+// up and down across wrapped lines in vscode vim fix
+{
+  "key": "up",
+  "command": "cursorUp",
+  "when": "editorTextFocus && vim.active && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+},
+{
+  "key": "down",
+  "command": "cursorDown",
+  "when": "editorTextFocus && vim.active && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+},
+{
+  "key": "k",
+  "command": "cursorUp",
+  "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+},
+{
+  "key": "j",
+  "command": "cursorDown",
+  "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Normal' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+},
+{
+  "key": "ctrl+cmd+`",
+  "command": "workbench.action.terminal.toggleTerminal"
+},
+{
+  "key": "ctrl+`",
+  "command": "workbench.action.terminal.focusNextPane",
+  "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+},
+{
+  "key": "shift+cmd+r",
+  "command": "workbench.action.openRecent"
+},
+{
+  "key": "ctrl+r",
+  "command": "-workbench.action.openRecent"
+},
+{
+  "key": "ctrl+q",
+  "command": "-workbench.action.quickOpenNavigateNextInViewPicker",
+  "when": "inQuickOpen && inViewsPicker"
+},
+{
+  "key": "ctrl+q",
+  "command": "-workbench.action.quickOpenView"
+},
+{
+  "key": "cmd+k right",
+  "command": "-workbench.action.moveActiveEditorGroupRight"
+},
+{
+  "key": "cmd+k right",
+  "command": "-views.moveViewRight",
+  "when": "focusedView != ''"
+},
+{
+  "key": "cmd+k cmd+k",
+  "command": "-editor.action.selectFromAnchorToCursor",
+  "when": "editorTextFocus && selectionAnchorSet"
+},
+{
+  "key": "cmd+k cmd+k",
+  "command": "-editor.action.defineKeybinding",
+  "when": "resource == 'vscode-userdata:/Users/amwalle/Library/Application%20Support/Code/User/keybindings.json'"
+},
+{
+  "key": "cmd+k h",
+  "command": "workbench.action.focusLeftGroup"
+},
+{
+  "key": "cmd+k h",
+  "command": "workbench.action.focusLeftGroup"
+},
+{
+  "key": "cmd+k l",
+  "command": "workbench.action.focusRightGroup"
+},
+{
+  "key": "cmd+k j",
+  "command": "workbench.action.focusBelowGroup"
+},
+{
+  "key": "cmd+k k",
+  "command": "workbench.action.focusAboveGroup"
+},
+{
+  "key": "cmd+\\",
+  "command": "-workbench.action.splitEditor"
+},
+{
+  "key": "cmd+k shift+5",
+  "command": "workbench.action.splitEditorRight"
+}
+
+
+]

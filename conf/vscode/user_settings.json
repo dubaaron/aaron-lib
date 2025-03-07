@@ -1,0 +1,85 @@
+{
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "debug.console.fontSize": 12,
+  "scm.inputFontSize": 12,
+  "editor.mouseWheelZoom": true,
+  "editor.renderWhitespace": "all",
+  "debug.showBreakpointsInOverviewRuler": true,
+  "editor.rulers": [
+      60,
+      { "column": 80, "color": "#990000"},
+      100,
+      108
+  ],
+  "files.autoSave": "onFocusChange",
+  "window.title": "${rootName}${separator}${dirty}${activeEditorShort}${separator}gauranga ${folderPath}",
+  "window.titleSeparator": " 🕉     ",
+  "telemetry.telemetryLevel": "off",
+  "window.restoreWindows": "one",
+  "workbench.editor.closeEmptyGroups": false,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "git.suggestSmartCommit": false,
+  "editor.wrappingIndent": "indent",
+  "git.autofetch": true,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.macOptionClickForcesSelection": true,
+
+  "customWindowZoom.zoomLevelChangeValue": 0.05,
+  "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
+  "[ruby]": {
+
+      "editor.insertSpaces": true,
+      "files.insertFinalNewline": true,
+      "files.trimFinalNewlines": true,
+      "editor.semanticHighlighting.enabled": true,
+      "editor.defaultFormatter": "Shopify.ruby-lsp"
+
+  },
+  "files.associations": {
+      "*.js.erb": "javascript",
+      "*.dryml": "erb",
+      ".env.tmpl.env": "shellscript"
+  },
+  "vim.useSystemClipboard": true,
+  "files.exclude": {
+      ".wktr**/": true,
+      ".wktr2**/": true,
+      ".worktree**/": true,
+      ".worktrees**/": true
+  },
+  "[markdown]": {
+
+      "editor.tabSize": 3,
+      "editor.unicodeHighlight.ambiguousCharacters": false,
+      "editor.unicodeHighlight.invisibleCharacters": false,
+      "editor.wordWrap": "on",
+      "editor.quickSuggestions": {
+          "comments": "off",
+          "strings": "off",
+          "other": "off"
+      }
+  },
+  "remote.SSH.foldersSortOrder": "alphabetical",
+  "git.ignoreLegacyWarning": true,
+  "remote-explorer.foldersSortOrder": "alphabetical",
+  "window.zoomLevel": -1,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.experimental.showMoves": true,
+  "explorer.autoReveal": false,
+  "diffEditor.renderSideBySide": true,
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+      "**/.bundle/**": true,
+      "**/vendor/bundle": true
+  },
+  "terminal.integrated.tabs.enabled": false,
+  "workbench.colorTheme": "Default Light Modern",
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Default Dark+",
+  "fontshortcuts.step": 0.25,
+  "diffEditor.maxComputationTime": 0
+}
